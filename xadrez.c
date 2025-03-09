@@ -1,9 +1,33 @@
 #include <stdio.h> 
+
+void Torremovimento(int movimento){
+    if(movimento > 0){
+        Torremovimento(movimento - 1);
+        printf("Torre andou %d casas para a direita\n", movimento);
+    }
+}
+void Bispomovimento(int movimento2){
+    if(movimento2 > 0){
+        Bispomovimento(movimento2 - 1);
+        printf("Bispo andou %d casas para a direita cima\n", movimento2);
+    }
+}
+void Rainhamovimento(int movimento3){
+    if(movimento3 > 0){
+        Rainhamovimento(movimento3 - 1);
+        printf("Rainha andou %d casas para a esquerda\n", movimento3);
+    }
+}
+//Função recursiva para momivimento das peças
+
 int main(){
 
 int Torre, Bispo, Rainha, Cavalo;
 int Opcao;
-Cavalo = 3;
+Cavalo = 1;
+Torre = 5;
+Bispo = 5;
+Rainha = 8;
 
 printf("Escolha uma peça:\n\n");
 printf("1. Torre\n");
@@ -16,21 +40,18 @@ switch (Opcao) //Sistema de escolha e movimentação das peças
 {
 case 1:
 printf("Você escolheu a Torre\n");
-for(Torre = 1; Torre <= 5; Torre++){
-    printf("Torre andou %d casas para cima\n", Torre);
-}
+Torremovimento(Torre);
+
 break;
 case 2:
 printf("Você escolheu o Bispo\n");
-for(Bispo = 1; Bispo <= 5; Bispo++){
-    printf("Bispo andou %d casas para a direita cima\n", Bispo);
-}
+Bispomovimento(Bispo);
+
 break;
 case 3:
 printf("Você escolheu a Rainha\n");
-for(Rainha = 1; Rainha <= 8; Rainha++){
-    printf("Rainha andou %d casas para esquerda\n", Rainha);
-}
+Rainhamovimento(Rainha);
+
 break;
 case 4:
 printf("Você escolheu o Cavalo\n");
@@ -45,6 +66,6 @@ default:
 printf("Opção invalida\n");
 
 }
-
+//Desafio concluido.
 return 0;
 }
